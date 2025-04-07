@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.tsx";
 import Login from "./pages/Login.tsx";
@@ -8,7 +9,16 @@ import RegistrationForm from "./components/RegistrationForm.tsx";
 import DustbinInteraction from "./components/DustbinInteraction.tsx";
 import Profile from "./pages/Profile.tsx";
 
-function App() {
+import App from "./App.tsx";
+
+ReactDOM.render(
+  <BrowserRouter basename="/tumi_and_friends">
+    <MainApp />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
+
+function MainApp() {
   return (
     <BrowserRouter>
       <Routes>
@@ -22,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+export default MainApp;
