@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/tumi_and_friends/static/css/main.0b7637a9.css",
+    "main.js": "/tumi_and_friends/static/js/main.8e8a4372.js",
+    "static/js/453.392804c2.chunk.js": "/tumi_and_friends/static/js/453.392804c2.chunk.js",
+    "static/media/binGif.gif": "/tumi_and_friends/static/media/binGif.33ff1bca07e7a06ecb1e.gif",
+    "index.html": "/tumi_and_friends/index.html",
+    "main.0b7637a9.css.map": "/tumi_and_friends/static/css/main.0b7637a9.css.map",
+    "main.8e8a4372.js.map": "/tumi_and_friends/static/js/main.8e8a4372.js.map",
+    "453.392804c2.chunk.js.map": "/tumi_and_friends/static/js/453.392804c2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0b7637a9.css",
+    "static/js/main.8e8a4372.js"
+  ]
+}
