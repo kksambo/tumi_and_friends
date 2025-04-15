@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./DustbinInteraction.css";
 import binOpeningGif from "./binGif.gif"; // Import the bin opening GIF
+import { useNavigate } from "react-router-dom";
 
 const DustbinInteraction = () => {
   const [itemImage, setItemImage] = useState<File | null>(null);
@@ -32,7 +33,7 @@ const DustbinInteraction = () => {
 
     try {
       // Send the image to the Flask API
-      const response = await fetch("https://image-processing-2-thbz.onrender.com/classify", {
+      const response = await fetch("https://geminiapp-dp6r.onrender.com/classify", {
         method: "POST",
         body: formData,
       });
@@ -42,14 +43,15 @@ const DustbinInteraction = () => {
       }
 
       const result = await response.json();
+      console.log(result);
 
    
-      if (result.label !== "Unknown") {
-        setBinOpen(true); // Simulate bin opening
-        setTimeout(() => setBinOpen(false), 5000); // Close bin after 5 seconds
-        setClassificationResult(`Item accepted: ${result.label} (Confidence: ${result.confidence.toFixed(2)})`);
+      if (result.classification !== "Unknown") {
+        setBinOpen(true); 
+        setTimeout(() => setBinOpen(false), 5000); 
+        setClassificationResult(`Item accepted: ${result.classification}`);
 
-        // Reward the user with points
+       
         await rewardUser();
       } else {
         setClassificationResult("Item rejected: Unknown item.");
@@ -58,7 +60,7 @@ const DustbinInteraction = () => {
       setError(err.message);
     } finally {
       setLoading(false);
-      setItemImage(null); // Clear the selected image
+      setItemImage(null); 
     }
   };
 
@@ -85,14 +87,51 @@ const DustbinInteraction = () => {
       }
 
       const data = await response.json();
-      setRewardMessage(`Points allocated successfully! Updated Points: ${data.UpdatedPoints}`);
+      setRewardMessage(`you got yourself 10 points`);
     } catch (err: any) {
       setError(err.message);
     }
   };
+  const navigate = useNavigate();
+  const handleLogout = () => {
 
+    localStorage.removeItem("token");
+    localStorage.removeItem("userEmail");
+
+    
+    navigate("/"); 
+  };
   return (
     <div className="dustbin-interaction">
+<nav class="navbar navbar-expand-lg navbar-dark px-4">
+    <a class="navbar-brand" href="#">Admin Panel</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/dustbininteraction">Dispose</a>
+        </li>
+        <li class="nav-item">
+        <a
+              className="nav-link text-danger"
+              href="#"
+              onClick={handleLogout} 
+            >
+              Logout
+            </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <center>
       <h2>Dustbin Interaction</h2>
       <div className="image-upload">
         <label htmlFor="item-image">Take a picture or select from storage:</label>
@@ -126,6 +165,7 @@ const DustbinInteraction = () => {
       )}
 
       {error && <p className="error">Error: {error}</p>}
+      </center>
     </div>
   );
 };

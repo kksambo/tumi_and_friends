@@ -51,7 +51,33 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="registration-form">
+    <div className="login-container">
+        <nav class="navbar navbar-expand-lg navbar-dark px-4">
+    <a class="navbar-brand" href="#">Admin Panel</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Activities</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Settings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger" href="#">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+      <center>
       <h2>Register</h2>
       {error && <div className="alert alert-danger">{error}</div>}
       {success && <div className="alert alert-success">{success}</div>}
@@ -96,17 +122,20 @@ const RegistrationForm = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Register
-        </button>
-        <button
-          type="button"
-          className="btn btn-link"
-          onClick={() => navigate("/login")}
-        >
-          Go to Login
-        </button>
+        <div className="login-actions">
+          <button type="submit" className="btn btn-primary">
+            Register
+          </button>
+          <button
+            type="button"
+            className="btn btn-link"
+            onClick={() => navigate("/login")}
+          >
+            Go to Login
+          </button>
+        </div>
       </form>
+      </center>
     </div>
   );
 };

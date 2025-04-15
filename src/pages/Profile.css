@@ -53,3 +53,11 @@
     font-size: 16px;
     color: red;
   }
+
+  .main-container {
+    background-color: #1e1e2f; /* Dark background */
+    color: #f0f0f0; /* Light text color */
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: "Arial", sans-serif;
+  }

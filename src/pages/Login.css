@@ -1,11 +1,17 @@
 .login-container {
     background-color: #1e1e2f; /* Dark background */
     color: #f0f0f0; /* Light text color */
+    /*
+        
+    
+     
+    */
+    display: block;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
+    
     font-family: "Arial", sans-serif;
     padding: 2rem;
   }
@@ -94,7 +100,9 @@
   
   .login-actions {
     margin-top: 1rem;
-    display: flex;
+  
     justify-content: center; /* Align buttons horizontally */
     gap: 1rem; /* Add spacing between buttons */
   }
+
+ 

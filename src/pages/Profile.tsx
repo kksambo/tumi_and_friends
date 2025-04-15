@@ -53,7 +53,35 @@ const Profile = () => {
   }
 
   return (
-    <div className="profile-container">
+    <div className="main-container">
+  <nav class="navbar navbar-expand-lg navbar-dark px-4">
+    <a class="navbar-brand" href="#">Admin Panel</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Activities</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Settings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger" href="#">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div className="profile-container">
       <h2 className="profile-title">User Profile</h2>
       {user && (
         <div className="profile-details">
@@ -69,7 +97,9 @@ const Profile = () => {
       >
         Go to Dustbin Interaction
       </button>
-    </div>
+      </div>
+      </div>
+    
   );
 };
 
